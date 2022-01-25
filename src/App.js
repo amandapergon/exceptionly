@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/reset.css";
+import AllPagesBackground from "./components/background";
+import FormContainer from "./components/formContainer";
+import dotLogo from "./assets/dot_logo.png";
+import wordLogo from "./assets/word_logo.png";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AllPagesBackground>
+      <FormContainer
+        leftImage={dotLogo}
+        leftaltText={"Exceptionly Logo"}
+        title={"WELCOME TO THE MARKETPLACE"}
+        leftText={
+          "Exceptionly provides hands on tested remote software engineers unlike any other outsourcing company. Our product delivers talent directly for hiring without a lifetime markup over 400%"
+        }
+        footerText={"Don't have an account?"}
+        href={"https://www.google.com.br/"}
+        footerLink={"CREATE AN ACCOUNT"}
+        rightImage={wordLogo}
+        rightAltText="Word Logo Exceptionly"
+        rightText={"Sign in to your account"}
+      ></FormContainer>
+    </AllPagesBackground>
   );
 }
 
