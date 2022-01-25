@@ -4,15 +4,27 @@ export const StyledFormContainer = styled.div`
   max-width: 850px;
   display: flex;
   font-family: Roboto;
-
   #left {
     background: #252525;
     padding: 70px 86.5px;
     text-align: center;
     color: rgba(255, 255, 255, 0.74);
+    #top-spacer {
+      background: #252525;
+      width: 310px;
+      height: 112px;
+      left: 70px;
+      top: 70px;
+    }
     img {
       display: block;
-      margin: 0 auto 56px;
+    }
+    #bottom-spacer {
+      background: #252525;
+      width: 310px;
+      height: 56px;
+      left: 70px;
+      top: 435px;
     }
     div {
       width: 277px;
@@ -33,12 +45,10 @@ export const StyledFormContainer = styled.div`
       }
     }
   }
-
   #right {
     background: #ffffff;
     width: 400px;
     position: relative;
-
     div {
       display: flex;
       flex-direction: column;
@@ -48,7 +58,7 @@ export const StyledFormContainer = styled.div`
       width: 400px;
       height: 701px;
       left: 450px;
-      top: 0px;
+      top: 126px;
       img {
         width: 199px;
         height: 42px;
@@ -69,7 +79,6 @@ export const StyledFormContainer = styled.div`
         margin-top: 24px;
       }
     }
-
     footer {
       background: rgba(37, 37, 37, 0.9);
       padding: 16px 0;
