@@ -1,5 +1,4 @@
 import { StyledFormContainer } from "./styles";
-
 const FormContainer = ({
   leftImage,
   leftAltText,
@@ -16,7 +15,9 @@ const FormContainer = ({
   return (
     <StyledFormContainer>
       <div id="left">
+        <div id="top-spacer"></div>
         <img src={leftImage} alt={leftAltText} />
+        <div id="bottom-spacer"></div>
         <div>
           <h1>{title}</h1>
           <p>{leftText}</p>
