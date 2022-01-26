@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,8 +6,6 @@ import SignupButtons from "../signupButtons";
 import { StyledButtons } from "../loginButtons/styles";
 import { StyledForm } from "../logInForm/styles";
 import { StyledParagraph } from "./styles";
-import GoogleIcon from "@mui/icons-material/Google";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const SignUpTextFields = ({ href }) => {
   return (

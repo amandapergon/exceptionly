@@ -7,6 +7,16 @@ export const StyledFormContainer = styled.div`
   display: flex;
   font-family: Roboto;
   box-shadow: 0 1px 2px #252525;
+  animation: fadeIn 0.25 ease-out;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 500px) {
     width: 100%;
