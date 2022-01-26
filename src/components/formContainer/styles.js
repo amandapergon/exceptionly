@@ -2,104 +2,132 @@ import styled from "styled-components";
 
 export const StyledFormContainer = styled.div`
   max-width: 850px;
+  min-height: 600px;
   display: flex;
   font-family: Roboto;
-  #left {
-    background: #252525;
-    padding: 70px 86.5px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+
+  footer {
+    background: rgba(37, 37, 37, 0.9);
+    padding: 16px 0;
     text-align: center;
-    color: rgba(255, 255, 255, 0.74);
-    #top-spacer {
-      background: #252525;
-      width: 310px;
-      height: 112px;
-      left: 70px;
-      top: 70px;
-    }
-    img {
-      display: block;
-    }
-    #bottom-spacer {
-      background: #252525;
-      width: 310px;
-      height: 56px;
-      left: 70px;
-      top: 435px;
-    }
-    div {
-      width: 277px;
-      margin: 0 auto;
-      h1 {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.5px;
-      }
-      p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    span {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      color: rgba(255, 255, 255, 0.87);
+      a {
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 0.25px;
-        font-style: normal;
-        font-weight: 400;
-        margin-top: 16px;
+        text-transform: uppercase;
+        color: #4285f4;
+        text-decoration: none;
       }
     }
   }
-  #right {
-    background: #ffffff;
-    width: 400px;
-    position: relative;
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 0px 0px;
-      position: static;
-      width: 400px;
-      height: 701px;
-      left: 450px;
-      top: 126px;
-      img {
-        width: 199px;
-        height: 42px;
-        left: 40.5px;
-        top: 0px;
-      }
-      p {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 24px;
-        color: rgba(0, 0, 0, 0.76);
-        width: 280px;
-        height: 24px;
-        left: 0px;
-        text-align: center;
-        margin-top: 24px;
-      }
-    }
-    footer {
-      background: rgba(37, 37, 37, 0.9);
-      padding: 16px 0;
-      text-align: center;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      span {
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.25px;
-        color: rgba(255, 255, 255, 0.87);
-        a {
-          font-size: 14px;
-          line-height: 20px;
-          letter-spacing: 0.25px;
-          text-transform: uppercase;
-          color: #4285f4;
-          text-decoration: none;
-        }
-      }
-    }
+`;
+
+export const Left = styled.div`
+  min-width: 450px;
+  background: #252525;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.74);
+  position: relative;
+
+  @media screen and (max-width: 900px) {
+    display: none;
   }
+`;
+
+export const LeftLogo = styled.img`
+  height: 309px;
+  width: 310px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 70px));
+`;
+
+export const TextBox = styled.div`
+  width: 277px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 25px;
+`;
+
+export const Title = styled.h1`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+`;
+
+export const Text = styled.p`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #ffffff;
+  opacity: 0.74;
+  width: 280px;
+  text-align: center;
+  margin-top: 24px;
+`;
+
+export const Right = styled.div`
+  background: #ffffff;
+  width: 400px;
+  position: relative;
+  padding: 60px 60px 100px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+`;
+export const RightLogoBox = styled.div`
+  text-align: center;
+`;
+export const RightLogo = styled.img`
+  width: 199px;
+  height: 42px;
+  display: block;
+  margin: 0 auto 24px;
+`;
+
+export const Footer = styled.footer`
+  background: rgba(37, 37, 37, 0.9);
+  padding: 16px 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+`;
+
+export const FooterText = styled.span`
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: rgba(255, 255, 255, 0.87);
+`;
+
+export const FooterLink = styled.a`
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  color: #4285f4;
+  text-decoration: none;
 `;

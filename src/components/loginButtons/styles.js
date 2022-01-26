@@ -1,1 +1,10 @@
 import styled from "styled-components";
+
+export const StyledButtons = styled.div`
+  display: block;
+  width: 100%;
+
+  p {
+    text-align: center;
+  }
+`;
