@@ -7,4 +7,7 @@ export const StyledButtons = styled.div`
   p {
     text-align: center;
   }
+  span {
+    margin-left: 8px;
+  }
 `;

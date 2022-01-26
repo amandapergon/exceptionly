@@ -19,13 +19,14 @@ export default function LoginButtons() {
           disableElevation
           sx={{ background: "##4285F4" }}
         >
-          <span>SIGN IN WITH GOOGLE</span>
+          <i class="fab fa-google"></i> <span>SIGN IN WITH GOOGLE</span>
         </Button>
         <Button
           variant="contained"
           disableElevation
           sx={{ background: "#2867B2" }}
         >
+          <i class="fab fa-linkedin"></i>
           <span>SIGN IN WITH LINKEDIN</span>
         </Button>
         <Button
@@ -33,7 +34,7 @@ export default function LoginButtons() {
           disableElevation
           sx={{ background: "#F25022", marginBottom: "60px" }}
         >
-          <span>SIGN IN WITH MICROSOFT</span>
+          <i class="fab fa-microsoft"></i> <span>SIGN IN WITH MICROSOFT</span>
         </Button>
       </Stack>
     </StyledButtons>
