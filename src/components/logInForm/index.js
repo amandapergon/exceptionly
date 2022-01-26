@@ -1,16 +1,43 @@
+import { useState } from "react";
+
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import { StyledForm } from "./styles";
 
 const FormPropsTextFields = ({ href }) => {
+  // const [reveal, setReveal] = useState(false);
+  // const [emailVal,setEmailVal] = useState(false);
+  // const [passwordVal, setEmailVal] = useState(false);
+  // const [failedlogin, setFailedLogin] = useState(false);
+
+  // const [value, setValue] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  // const tryLogin = (values) => {
+  //   axios
+  //   .post("https://somethingsomethinglogin", {
+  //     ...values,
+  //   })
+  //   .then((res) => {
+  //     localStorage.setItem("authToken", JSON.stringify(res.data.accessToken));
+  //     history.push("/feed");
+  //   })
+  //   .catch((err) => {
+  //     console.log("erro", err);
+  //     setFailedLogin(!failedLogin);
+  //   });
+  // }
+
   return (
     <StyledForm>
       <Box component="form" noValidate autoComplete="off">
         <TextField
           id="emailField"
           label="Email"
-          type={"email"}
+          type="email"
           variant="standard"
           error
           fullWidth
