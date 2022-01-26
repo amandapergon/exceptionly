@@ -19,7 +19,6 @@ const SignUp = () => {
         rightText={"Sign in to your account"}
         rightAltText={"Word Logo Exceptionly"}
         footerText={"Already have an account?"}
-        href={"https://www.google.com.br/"}
         footerLink={<Link to="/">SIGN IN HERE</Link>}
       >
         <SignUpTextFields />

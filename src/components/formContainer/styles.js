@@ -3,8 +3,10 @@ import styled from "styled-components";
 export const StyledFormContainer = styled.div`
   max-width: 850px;
   min-height: 600px;
+  border-radius: 4px 0 0 4px;
   display: flex;
   font-family: Roboto;
+  box-shadow: 0 1px 2px #252525;
 
   @media screen and (max-width: 500px) {
     width: 100%;

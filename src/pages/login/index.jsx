@@ -20,10 +20,9 @@ const LoginPage = () => {
         rightText={"Sign in to your account"}
         rightAltText={"Word Logo Exceptionly"}
         footerText={"Don't have an account?"}
-        href={"https://www.google.com.br/"}
         footerLink={<Link to="signup">CREATE AN ACCOUNT</Link>}
       >
-        <FormPropsTextFields href={"https://www.google.com.br/"} />
+        <FormPropsTextFields href={"/passwordRecovery"} />
         <LoginButtons />
       </FormContainer>
     </AllPagesBackground>
