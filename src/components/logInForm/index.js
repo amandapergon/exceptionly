@@ -6,19 +6,21 @@ const FormPropsTextFields = ({ href }) => {
   return (
     <StyledForm>
       <TextField
-        required
-        label="Email"
+        id="outlined-required"
+        label="Email *"
         type={"email"}
         variant="standard"
         fullWidth
+        sx={{ marginBottom: "20px", marginTop: "24px" }}
       />
       <TextField
-        required
-        label="Password"
+        id="outlined-required"
+        label="Password *"
         type="password"
         autoComplete="current-password"
         variant="standard"
         fullWidth
+        sx={{ marginBottom: "18px" }}
       />
       <span id="under-login-form-text">
         <Checkbox size="small" sx={{ padding: 0 }} />

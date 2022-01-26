@@ -7,9 +7,7 @@ export const StyledForm = styled.div`
   align-items: flex-start;
   padding: 0px;
   position: static;
-  width: 280px;
-  height: 171px;
-  margin: 0 auto;
+  width: 100%;
 
   .MuiFormControl-root {
     max-width: 100% !important;
@@ -31,6 +29,7 @@ export const StyledForm = styled.div`
       text-decoration: none;
       justify-content: space-between;
       margin-left: 37px;
+      color: #4285f4;
     }
   }
 `;

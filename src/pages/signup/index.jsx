@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import AllPagesBackground from "../../components/background";
-import FormPropsTextFields from "../../components/logInForm";
 import FormContainer from "../../components/formContainer";
 import dotLogo from "../../assets/dot_logo.png";
 import wordLogo from "../../assets/word_logo.png";
+import SignUpTextFields from "../../components/signUpForm";
 
 const SignUp = () => {
   return (
@@ -21,8 +21,9 @@ const SignUp = () => {
         footerText={"Already have an account?"}
         href={"https://www.google.com.br/"}
         footerLink={<Link to="/">SIGN IN HERE</Link>}
-      ></FormContainer>
-      {/* <FormPropsTextFields href={"https://www.google.com.br/"} /> */}
+      >
+        <SignUpTextFields />
+      </FormContainer>
     </AllPagesBackground>
   );
 };

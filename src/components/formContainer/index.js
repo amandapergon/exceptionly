@@ -1,4 +1,15 @@
-import { StyledFormContainer } from "./styles";
+import {
+  StyledFormContainer,
+  Left,
+  LeftLogo,
+  TextBox,
+  Title,
+  Text,
+  Right,
+  RightLogoBox,
+  RightLogo,
+  Footer,
+} from "./styles";
 const FormContainer = ({
   leftImage,
   leftAltText,
@@ -7,34 +18,32 @@ const FormContainer = ({
   rightImage,
   rightAltText,
   rightText,
-  children,
   footerText,
   footerLink,
   href,
+  children,
 }) => {
   return (
     <StyledFormContainer>
-      <div id="left">
-        <div id="top-spacer"></div>
-        <img src={leftImage} alt={leftAltText} />
-        <div id="bottom-spacer"></div>
-        <div>
-          <h1>{title}</h1>
-          <p>{leftText}</p>
-        </div>
-      </div>
-      <div id="right">
-        <div>
-          <img src={rightImage} alt={rightAltText} />
+      <Left>
+        <LeftLogo src={leftImage} alt={leftAltText} />
+        <TextBox>
+          <Title>{title}</Title>
+          <Text>{leftText}</Text>
+        </TextBox>
+      </Left>
+      <Right>
+        <RightLogoBox>
+          <RightLogo src={rightImage} alt={rightAltText} />
           <p>{rightText}</p>
-        </div>
+        </RightLogoBox>
         {children}
-        <footer>
+        <Footer>
           <span>
             {footerText} <a href={href}>{footerLink}</a>
           </span>
-        </footer>
-      </div>
+        </Footer>
+      </Right>
     </StyledFormContainer>
   );
 };
