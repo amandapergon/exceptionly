@@ -31,6 +31,7 @@ export const StyledFormContainer = styled.div`
         text-transform: uppercase;
         color: #4285f4;
         text-decoration: none;
+        margin-left: 3px;
       }
     }
   }

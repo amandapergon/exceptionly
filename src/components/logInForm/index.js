@@ -8,19 +8,20 @@ const FormPropsTextFields = ({ href }) => {
     <StyledForm>
       <Box component="form" noValidate autoComplete="off">
         <TextField
-          id="outlined-required"
-          label="Email *"
+          id="emailField"
+          label="Email"
           type={"email"}
           variant="standard"
+          error
           fullWidth
           sx={{ marginBottom: "20px", marginTop: "24px" }}
         />
         <TextField
-          id="outlined-required"
-          label="Password *"
+          id="passwordField"
+          label="Password"
           type="password"
-          autoComplete="current-password"
           variant="standard"
+          error
           fullWidth
           sx={{ marginBottom: "18px" }}
         />
