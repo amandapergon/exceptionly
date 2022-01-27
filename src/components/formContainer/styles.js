@@ -76,6 +76,7 @@ export const TextBox = styled.div`
   left: 50%;
   transform: translateX(-50%);
   margin-top: 25px;
+  text-align: center;
 `;
 
 export const Title = styled.h1`
@@ -111,6 +112,10 @@ export const Right = styled.div`
 `;
 export const RightLogoBox = styled.div`
   align-items: center;
+
+  p {
+    text-align: center;
+  }
 `;
 export const RightLogo = styled.img`
   width: 199px;
