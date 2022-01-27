@@ -110,7 +110,7 @@ export const Right = styled.div`
   }
 `;
 export const RightLogoBox = styled.div`
-  text-align: center;
+  align-items: center;
 `;
 export const RightLogo = styled.img`
   width: 199px;
