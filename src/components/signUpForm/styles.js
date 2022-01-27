@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledParagraph = styled.p`
-  align-self: center;
+export const StyledParagraph = styled.span`
+  align-items: center;
   margin-top: 16px;
   color: #000000;
   opacity: 0.87;
-  padding: 9px;
+  margin-left: 65px;
 `;

@@ -12,7 +12,8 @@ const schema = yup
     email: yup
       .string()
       .email("Invalid format")
-      .required("Please insert your email"),
+      .required("Please insert your email")
+      .matches("[a-z0-9]+@[a-z]+.[a-z]{2,3}"),
     password: yup.string().required("Please insert your password"),
   })
   .required();
@@ -38,7 +39,7 @@ const FormPropsTextFields = ({ href }) => {
         <Box component="div" noValidate autoComplete="off">
           <TextField
             id="email"
-            label="Email *"
+            label="Email*"
             type="email"
             defaultValue=""
             error={!!errors.email}
