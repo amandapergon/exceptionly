@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { TextField, Box, Button, Stack } from "@mui/material";
+import { TextField, Box, Button, Stack, Tooltip } from "@mui/material";
 
 import SignupButtons from "../signupButtons";
 import { StyledButtons } from "../loginButtons/styles";
@@ -11,28 +11,28 @@ import { StyledParagraph } from "./styles";
 
 const schema = yup
   .object({
-    name: yup.string().required("Please insert your name"),
-    lastName: yup.string().required("Please insert your name"),
+    name: yup.string().required("This is a required field"),
+    lastName: yup.string().required("This is a required field"),
     email: yup
       .string()
       .email("Invalid format")
-      .required("Please insert your email")
+      .required("This is a required field")
       .matches("[a-z0-9]+@[a-z]+.[a-z]{2,3}"),
     retypeEmail: yup
       .string()
       .email("Invalid format")
-      .required("Please insert your email")
+      .required("This is a required field")
       .oneOf([yup.ref("email"), null], "Emails must match"),
     password: yup
       .string()
-      .required("Please insert your password")
+      .required("This is a required field")
       .matches(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+        "Must contain 8 characters, at least 1 uppercase, 1 lowercase, and 1 special case character"
       ),
     retypePassword: yup
       .string()
-      .required("Please insert your password")
+      .required("This is a required field")
       .oneOf([yup.ref("password"), null], "Passwords must match"),
   })
   .required();

@@ -12,7 +12,7 @@ const schema = yup
     email: yup
       .string()
       .email("Invalid format")
-      .required("Please insert your email"),
+      .required("This is a required field"),
   })
   .required();
 
