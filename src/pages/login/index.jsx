@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import AllPagesBackground from "../../components/background";
 import FormPropsTextFields from "../../components/logInForm";
 import FormContainer from "../../components/formContainer";
-import LoginButtons from "../../components/loginButtons";
 import dotLogo from "../../assets/dot_logo.png";
 import wordLogo from "../../assets/word_logo.png";
 
@@ -23,7 +22,7 @@ const LoginPage = () => {
         footerLink={<Link to="signup">CREATE AN ACCOUNT</Link>}
       >
         <FormPropsTextFields href={"/passwordRecovery"} />
-        <LoginButtons />
+        {/* <LoginButtons /> */}
       </FormContainer>
     </AllPagesBackground>
   );

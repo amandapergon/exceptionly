@@ -17,10 +17,6 @@ export default function SignupButtons() {
           disableElevation
           sx={{
             background: "##4285F4",
-            marginTop: "16px",
-            width: "10px",
-            height: "45px",
-            aspectRatio: "1/1",
           }}
         >
           <i class="fab fa-google"></i>
@@ -30,10 +26,6 @@ export default function SignupButtons() {
           disableElevation
           sx={{
             background: "#2867B2",
-            marginTop: "16px",
-            width: "10px",
-            height: "45px",
-            aspectRatio: "1/1",
           }}
         >
           <i class="fab fa-linkedin"></i>
@@ -43,10 +35,6 @@ export default function SignupButtons() {
           disableElevation
           sx={{
             background: "#F25022",
-            marginTop: "16px",
-            width: "10px",
-            height: "45px",
-            aspectRatio: "1/1",
           }}
         >
           <i class="fab fa-microsoft"></i>

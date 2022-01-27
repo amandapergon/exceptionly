@@ -1,98 +1,164 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import { TextField, Box, Button, Stack } from "@mui/material";
+
 import SignupButtons from "../signupButtons";
 import { StyledButtons } from "../loginButtons/styles";
 import { StyledForm } from "../logInForm/styles";
 import { StyledParagraph } from "./styles";
-import GoogleIcon from "@mui/icons-material/Google";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const SignUpTextFields = ({ href }) => {
+const schema = yup
+  .object({
+    name: yup.string().required("Please insert your name"),
+    lastName: yup.string().required("Please insert your name"),
+    email: yup
+      .string()
+      .email("Invalid format")
+      .required("Please insert your email")
+      .matches("[a-z0-9]+@[a-z]+.[a-z]{2,3}"),
+    retypeEmail: yup
+      .string()
+      .email("Invalid format")
+      .required("Please insert your email")
+      .oneOf([yup.ref("email"), null], "Emails must match"),
+    password: yup
+      .string()
+      .required("Please insert your password")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      ),
+    retypePassword: yup
+      .string()
+      .required("Please insert your password")
+      .oneOf([yup.ref("password"), null], "Passwords must match"),
+  })
+  .required();
+
+const SignUpTextFields = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data, evt) => {
+    evt.preventDefault();
+    console.log(data);
+    reset();
+  };
+
   return (
-    <Box component="form" noValidate autoComplete="off">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <StyledForm>
-        <TextField
-          label="Name"
-          type="name"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "15px", marginTop: "24px" }}
-        />
-        <TextField
-          label="Last Name"
-          type="last name"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <TextField
-          label="Email"
-          type="email"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <TextField
-          label="Retype Email"
-          type="email"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <TextField
-          id="outlined-required"
-          label="Password"
-          type="password"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <TextField
-          id="outlined-required"
-          label="Retype Password"
-          type="password"
-          variant="standard"
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <StyledButtons>
-          <Stack spacing={2}>
-            <Button
-              variant="contained"
-              disableElevation
-              sx={{ background: "#4285F4", marginTop: "27px" }}
-            >
-              SIGN UP
-            </Button>
-          </Stack>
-        </StyledButtons>
-        <StyledParagraph>
-          <span id="text">
-            <p>OR SIGN UP USING</p>
-          </span>
-        </StyledParagraph>
-        <SignupButtons />
+        <Box component="div" autoComplete="off">
+          <TextField
+            id="name"
+            label="Name*"
+            type="name"
+            defaultValue=""
+            error={!!errors.name}
+            helperText={errors.name?.message}
+            {...register("name")}
+            variant="standard"
+            fullWidth
+            sx={{ marginBottom: "15px", marginTop: "24px" }}
+          />
+          <TextField
+            id="lastName"
+            label="Last name*"
+            type="name"
+            defaultValue=""
+            error={!!errors.lastName}
+            helperText={errors.lastName?.message}
+            {...register("lastName")}
+            variant="standard"
+            fullWidth
+            sx={{ marginBottom: "18px" }}
+          />
+          <TextField
+            id="email"
+            label="Email*"
+            type="email"
+            defaultValue=""
+            error={!!errors.email}
+            helperText={errors.email?.message}
+            {...register("email")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginBottom: "18px",
+            }}
+          />
+          <TextField
+            id="retypeEmail"
+            label="Retype Email*"
+            type="retypeEmail"
+            defaultValue=""
+            error={!!errors.retypeEmail}
+            helperText={errors.retypeEmail?.message}
+            {...register("retypeEmail")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginBottom: "18px",
+            }}
+          />
+          <TextField
+            id="password"
+            label="Password*"
+            type="password"
+            defaultValue=""
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            {...register("password")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginBottom: "18px",
+            }}
+          />
+          <TextField
+            id="retypePassword"
+            label="Retype password*"
+            type="password"
+            defaultValue=""
+            error={!!errors.retypePassword}
+            helperText={errors.retypePassword?.message}
+            {...register("retypePassword")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginBottom: "18px",
+              marginTop: "10px",
+            }}
+          />
+          <StyledButtons>
+            <Stack spacing={2}>
+              <Button
+                type="submit"
+                variant="contained"
+                disableElevation
+                sx={{ background: "#4285F4", marginTop: "27px" }}
+              >
+                SIGN UP
+              </Button>
+            </Stack>
+          </StyledButtons>
+          <StyledParagraph>
+            <span id="text">
+              <p>OR SIGN UP USING</p>
+            </span>
+          </StyledParagraph>
+          <SignupButtons />
+        </Box>
       </StyledForm>
-    </Box>
+    </form>
   );
 };
 
 export default SignUpTextFields;
-
-// validate={[
-//   {
-//     regexp: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))+$/,
-//     placeholder: "exemplo@ex.com",
-//     message: "E-mail inválido.",
-//   },
-//   (email) => {
-//     if (email.length > 5) {
-//       setEmailVal(true);
-//     }
-//     return undefined;
-//   },
-// ]}
