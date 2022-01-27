@@ -12,9 +12,9 @@ const schema = yup
     email: yup
       .string()
       .email("Invalid format")
-      .required("Please insert your email")
+      .required("This is a required field")
       .matches("[a-z0-9]+@[a-z]+.[a-z]{2,3}"),
-    password: yup.string().required("Please insert your password"),
+    password: yup.string().required("This is a required field"),
   })
   .required();
 
