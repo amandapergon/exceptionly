@@ -5,4 +5,5 @@ export const StyledParagraph = styled.p`
   margin-top: 16px;
   color: #000000;
   opacity: 0.87;
+  padding: 9px;
 `;

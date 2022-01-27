@@ -1,64 +1,83 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
+import { TextField, Box, Checkbox } from "@mui/material";
+
 import { StyledForm } from "./styles";
+import LoginButtons from "../loginButtons";
+
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .email("Invalid format")
+      .required("Please insert your email"),
+    password: yup.string().required("Please insert your password"),
+  })
+  .required();
 
 const FormPropsTextFields = ({ href }) => {
-  // const [reveal, setReveal] = useState(false);
-  // const [emailVal,setEmailVal] = useState(false);
-  // const [passwordVal, setEmailVal] = useState(false);
-  // const [failedlogin, setFailedLogin] = useState(false);
-
-  // const [value, setValue] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const tryLogin = (values) => {
-  //   axios
-  //   .post("https://somethingsomethinglogin", {
-  //     ...values,
-  //   })
-  //   .then((res) => {
-  //     localStorage.setItem("authToken", JSON.stringify(res.data.accessToken));
-  //     history.push("/feed");
-  //   })
-  //   .catch((err) => {
-  //     console.log("erro", err);
-  //     setFailedLogin(!failedLogin);
-  //   });
-  // }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data, evt) => {
+    evt.preventDefault();
+    console.log(data);
+    reset();
+  };
 
   return (
-    <StyledForm>
-      <Box component="form" noValidate autoComplete="off">
-        <TextField
-          id="emailField"
-          label="Email"
-          type="email"
-          variant="standard"
-          error
-          fullWidth
-          sx={{ marginBottom: "20px", marginTop: "24px" }}
-        />
-        <TextField
-          id="passwordField"
-          label="Password"
-          type="password"
-          variant="standard"
-          error
-          fullWidth
-          sx={{ marginBottom: "18px" }}
-        />
-        <span id="under-login-form-text">
-          <Checkbox size="small" sx={{ padding: 0 }} />
-          Remember Me
-          <a href={href}>Forgot Password?</a>
-        </span>
-      </Box>
-    </StyledForm>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <StyledForm>
+        <Box component="div" noValidate autoComplete="off">
+          <TextField
+            id="email"
+            label="Email *"
+            type="email"
+            defaultValue=""
+            error={!!errors.email}
+            helperText={errors.email?.message}
+            {...register("email")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginTop: "24px",
+              marginBottom: "18px",
+            }}
+          />
+
+          <br />
+
+          <TextField
+            id="password"
+            label="Password *"
+            type="password"
+            defaultValue=""
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            {...register("password")}
+            variant="standard"
+            fullWidth
+            sx={{
+              marginBottom: "18px",
+              marginTop: "10px",
+            }}
+          />
+          <span id="under-login-form-text">
+            <Checkbox size="small" sx={{ padding: 0 }} />
+            Remember Me
+            <a href={href}>Forgot Password?</a>
+          </span>
+        </Box>
+      </StyledForm>
+      <LoginButtons />
+    </form>
   );
 };
 

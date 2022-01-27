@@ -10,6 +10,7 @@ export default function LoginButtons() {
           variant="contained"
           disableElevation
           sx={{ background: "#4285F4", marginTop: "27px" }}
+          type="submit"
         >
           SIGN IN
         </Button>
