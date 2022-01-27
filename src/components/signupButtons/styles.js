@@ -6,7 +6,7 @@ export const StyledSignupButtons = styled.div`
   margin-top: 16px;
 
   i {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 20px;
+    padding: 5px;
   }
 `;
